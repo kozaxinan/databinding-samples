@@ -1,0 +1,38 @@
+buildscript {
+  repositories {
+    google()
+    gradlePluginPortal()
+    mavenCentral()
+  }
+
+  ext {
+    kotlin_version = '1.3.61'
+  }
+
+  dependencies {
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+  }
+}
+
+repositories {
+  google()
+  gradlePluginPortal()
+  mavenCentral()
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'java-gradle-plugin'
+
+gradlePlugin {
+  plugins {
+    simplePlugin {
+      id = 'LibraryCommonPlugin'
+      implementationClass = 'de.is24.plugins.LibraryCommonPlugin'
+    }
+  }
+}
+
+dependencies {
+
+  implementation "com.android.tools.build:gradle:3.5.3"
+}
